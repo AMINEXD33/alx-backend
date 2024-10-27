@@ -46,7 +46,7 @@ class Server:
         if indexes[1] < len(self.__dataset):
             hasnext = page + 1
 
-        if indexes[0]  > 0:
+        if indexes[0] > 0:
             hasprev = page - 1
 
         return {
