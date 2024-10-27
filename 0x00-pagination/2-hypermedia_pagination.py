@@ -43,7 +43,7 @@ class Server:
         indexes: List[int, int] = index_range(page=page, page_size=page_size)
         hasnext: None | int = None
         hasprev: None | int = None
-        if indexes[1] + 1 < len(self.dataset):
+        if indexes[1] + 1 < len(self.__dataset):
             hasnext = indexes[1] + 1
         if indexes[0] - 1 > 0:
             hasprev = indexes[0] - 1
