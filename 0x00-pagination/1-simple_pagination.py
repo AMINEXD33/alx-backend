@@ -50,7 +50,7 @@ class Server:
             # we can't start off bound
             return []
         if indexs[1] > len(dataset):
-            # return a list from thta valid start until the
+            # return a list from the valid start until the
             # max length
             data_list: List = []
             for x in range(indexs[0], len(dataset)):
