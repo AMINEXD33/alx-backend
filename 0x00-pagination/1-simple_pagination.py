@@ -42,7 +42,7 @@ class Server:
         dataset = self.dataset()
         indexs: List[int, int] = index_range(page=page, page_size=page_size)
         # check bounds
-        if indexs[0] > len(dataset) or indexs[1] > len(dataset):
+        if indexs[0] > len(dataset) - 1 or indexs[1] > len(dataset) - 1:
             # we can't start off bound
             return []
         data_list: List = []
