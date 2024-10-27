@@ -45,14 +45,6 @@ class Server:
         if indexs[0] > len(dataset) or indexs[1] > len(dataset):
             # we can't start off bound
             return []
-        # if indexs[1] > len(dataset):
-        #     # return a list from thta valid start until the
-        #     # max length
-        #     data_list: List = []
-        #     for x in range(indexs[0], len(dataset)):
-        #         data_list.append(dataset[x])
-        #     return data_list
-        # both bounds are valid
         data_list: List = []
         for x in range(indexs[0], indexs[1]):
             data_list.append(dataset[x])
