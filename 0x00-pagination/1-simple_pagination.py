@@ -36,6 +36,10 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """
+        this function returns a chunk of data based onthe pagination params
+        passed to it
+        """
 
         assert type(page) is int and type(page_size) is int
         assert page > 0 and page_size > 0
@@ -45,6 +49,14 @@ class Server:
         if indexs[0] > len(dataset):
             # we can't start off bound
             return []
+        if indexs[1] > len(dataset):
+            # return a list from thta valid start until the
+            # max length
+            data_list: List = []
+            for x in range(indexs[0], len(dataset)):
+                data_list.append(dataset[x])
+            return data_list
+        # both bounds are valid
         data_list: List = []
         for x in range(indexs[0], indexs[1]):
             data_list.append(dataset[x])
