@@ -40,13 +40,13 @@ class Server:
         a function that returns pagination data
         """
         data: List = self.get_page(page=page, page_size=page_size)
-        indexes: List[int, int] = index_range(page=page, page_size=page_size)
         hasnext: None | int = None
         hasprev: None | int = None
-        if indexes[1] + 1 < len(self.__dataset):
-            hasnext = indexes[1] + 1
-        if indexes[0] - 1 > 0:
-            hasprev = indexes[0] - 1
+        if page + 1 < len(self.__dataset):
+            hasnext = page + 1
+
+        if page - 1 > 0:
+            hasprev = page - 1
 
         return {
             "page_size": len(data),
