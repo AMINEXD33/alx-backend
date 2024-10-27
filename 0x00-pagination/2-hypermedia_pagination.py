@@ -49,7 +49,7 @@ class Server:
             hasprev = indexes[0] - 1
 
         return {
-            "page_size": page_size,
+            "page_size": len(data),
             "page": page,
             "data": data,
             "next_page": hasnext,
