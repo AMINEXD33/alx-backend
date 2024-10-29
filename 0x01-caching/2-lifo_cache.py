@@ -29,9 +29,9 @@ class LIFOCache(BaseCaching):
         self.cache_data[key] = item
         self.cache_data.move_to_end(key, last=True)
 
-
         self.cache_data[key] = item
         self.cache_data.move_to_end(key, last=True)
+
     def get(self, key):
         """
         a function that gets a value from cache based on a key
