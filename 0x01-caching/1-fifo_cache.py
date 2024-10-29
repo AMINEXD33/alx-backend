@@ -4,6 +4,10 @@
 from base_caching import BaseCaching
 
 class FIFOCache(BaseCaching):
+    """FIFOCache defines:
+    - constants of your caching system
+    - where your data are stored (in a dictionary)
+    """
     def put(self, key, item):
         """
         a function that puts a new item into cache
