@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" BaseCaching module
+""" module that contains two caching classes 
 """
 
 
