@@ -22,7 +22,6 @@ class FIFOCache(BaseCaching):
             self.cache_data[key] = item
         else:
             self.cache_data[key] = item
-            self.MAX_ITEMS += 1
 
     def get(self, key):
         """
