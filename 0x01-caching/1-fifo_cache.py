@@ -2,6 +2,7 @@
 """ FIFO CACHING MODULE
 """
 from base_caching import BaseCaching
+from collections import OrderedDict
 
 
 class FIFOCache(BaseCaching):
@@ -9,6 +10,10 @@ class FIFOCache(BaseCaching):
     - constants of your caching system
     - where your data are stored (in a dictionary)
     """
+
+    def __init__(self):
+        super().__init__()
+        self.cache_data = OrderedDict()
 
     def put(self, key, item):
         """
@@ -18,9 +23,8 @@ class FIFOCache(BaseCaching):
         if key is None or item is None:
             return
         if len(self.cache_data) > FIFOCache.MAX_ITEMS:
-            first_key = [x for x in self.cache_data.keys()][0]
+            first_key = self.cache_data.popitem(last=False)
             print(f"DISCARD: {first_key}")
-            self.cache_data.pop(first_key)
         self.cache_data[key] = item
 
     def get(self, key):
