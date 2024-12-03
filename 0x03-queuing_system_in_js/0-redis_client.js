@@ -1,19 +1,11 @@
-import { createClient } from "redis";
+import redis from 'redis';
 
-async function RedisConnect() {
-  const client = createClient();
-  client.on("error", (err) =>
-    console.log("Redis client not connected to the server:", err)
-  );
-  client.on("connect", () => {
-    console.log("Redis client connected to the server");
-  });
-  const connection = await client.connect();
-  return connection;
-}
+const client = redis.createClient();
 
-async function main() {
-  const connection = await RedisConnect();
-}
+client.on('connect', () => {
+  console.log('Redis client connected to the server');
+});
 
-main();
+client.on('error', (err) => {
+  console.error(`Redis client not connected to the server: ${err}`);
+});
